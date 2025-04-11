@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,33 +10,23 @@ public class Enemy : MonoBehaviour
 
     public int HP = 100;
     public int ATK;
-    public void CheckHP(int damage)
-    {
-        HP = HP - damage;
-        if (HP <= 0)
-        {
-            OnDestroyEnemy?.Invoke();
-            Destroy(gameObject);
-        }
-    }
+    ////public void CheckHP(int damage)
 
-    private void OnCollisionEnter(Collision bullet)
-    {
-        CheckHP(10);
-        Debug.Log("OnCollisionEnter!!!!!" + bullet.gameObject.name);
-    }
+    [Header("PS for Destroy")]
+    public ParticleSystem Destroy_particloSysteam;
+
+    
 
 
-    private void OnTriggerEnter(Collider other)
+    private void Awake()
     {
-        CheckHP(10);
-        Debug.Log("OnTriggerEnter!!!!!" + other.name);
+        Destroy_particloSysteam.Stop();    // Class
+        //MuzzelFlash_particleSystem.Stop();
+        //BulletShells_ParticleSystem.Stop();
+        //Traser_ParticleSysem.Stop();
     }
-    private void Update()
-    {
 
-        gunbarrel.LookAt(RealTarget);
-    }
+
 
 
 }

@@ -21,14 +21,14 @@ public class ParticleCollisionExample : MonoBehaviour
         // 
         if (other.GetComponent<Enemy>() != null)
         {
-            Debug.Log("Enemy hit");
-            other.GetComponent<Enemy>().CheckHP(1);
+            //Debug.Log("Enemy hit");
+            //other.GetComponent<Enemy>().CheckHP(1);
         }
 
         if (other.GetComponent<Turret>())
         {
-            Debug.Log("Turret hit");
-            other.GetComponent<Turret>().TakeDamage(1);
+            //Debug.Log("Turret hit");
+            //other.GetComponent<Turret>().TakeDamage(1);
         }
     }
 }
